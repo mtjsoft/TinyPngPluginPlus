@@ -11,4 +11,6 @@ public class AutoScriptWindow {
     public JProgressBar progressBar;
     public JButton ok;
     public JTextArea result;
+    public JTextField apiKeyTF;
+    public JButton getKeyBtn;
 }

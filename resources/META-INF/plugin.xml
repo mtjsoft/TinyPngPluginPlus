@@ -2,33 +2,35 @@
     <id>cn.mtjsoft.tinypng.plugin</id>
     <name>TinyPNGPlugin</name>
     <version>1.0.0</version>
-    <vendor email="mtjsoft3@gmain.com" url="https://mtjsoft.github.io/">马腾蛟</vendor>
+    <vendor email="mtjsoft3@gmain.com" url="https://github.com/mtjsoft/TinyPngPluginPlus">马腾蛟</vendor>
 
     <description><![CDATA[
     <h1>TinyPNGPlugin</h1>
       <br/>
       <p>
-      <b><a href="https://github.com/Deemonser/TinyPngPlugin">GitHub</a></b>
+      <b><a href="https://github.com/mtjsoft/TinyPngPluginPlus">GitHub</a></b>
       </p>
       <p>
-      <b><a href="https://github.com/Deemonser/TinyPngPlugin">https://github.com/Deemonser/TinyPngPlugin</a></b>
+      <b><a href="https://github.com/mtjsoft/TinyPngPluginPlus">https://github.com/mtjsoft/TinyPngPluginPlus</a></b>
       </p>
       <br/>
       <p><b>A plugin for compression picture by TinyPNG API.</b></p>
       <br/>
       <p><b>利用 TinyPNG 的 API ，开发的图片压缩工具。</b></p>
-      <p><b>如果有问题，欢迎大家到 GitHub 上留言。</b></p>
+      <p><b>Get TinyPNG  KEY?</b><b><a href="https://tinypng.com/developers">Click It</a></b></p>
+      <p><b>如果有问题，欢迎大家到 GitHub 上提交</b><b><a href="https://github.com/mtjsoft/TinyPngPluginPlus/issues">Issuses</a></b></p>
       <br/>
-      <p><b>Use： Help --> TinyPNGPlugin </b></p>
+      <p><b>Use： Tools --> TinyPNGPlugin </b></p>
       <br/>
-      <p><b>更多详细信息，请查看 GitHub</b> <br/> <a href="https://github.com/Deemonser/TinyPngPlugin">https://github.com/Deemonser/TinyPngPlugin</a></p>
+      <p><b>keyboard-shortcut： Ctrl + Alt + P </b></p>
+      <br/>
     ]]>
     </description>
 
     <change-notes><![CDATA[
       <p>
-        <h3>v1.0.0 2021/9/05</h3>
-        <li>可视化设置Shape属性，一键生成Shape文件到指定目录</li>
+        <h3>v1.0.0 2022/03/28</h3>
+        <li>实现对指定文件夹下的图片进行可视化压缩</li>
       </p>
     ]]>
     </change-notes>
@@ -51,7 +53,7 @@
         <!-- Add your actions here -->
         <action id="TinyPNGPlugin.ID" class="cn.mtjsoft.tinypng.plugin.TinyPngAction" text="TinyPNGPlugin"
                 description="A plugin for compression picture by tinyPNG API">
-            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
         </action>
     </actions>

@@ -2,8 +2,9 @@
 
 利用 TinyPNG 的 API ，开发的图片压缩工具。
 
-
 <p><b>Get TinyPNG  Apikey?</b><b><a href="https://tinypng.com/developers"> Click It</a></b></p>
+
+<b><a href="https://github.com/mtjsoft/TinyPngPluginPlus/blob/master/TinyPngPluginPlus.zip">DownLoad Plugin</a></b>
 
 <p><b>Use： Tools --> TinyPNGPlugin </b></p>
 <p><b>keyboard-shortcut： Ctrl + Alt + P </b></p>

@@ -42,6 +42,7 @@ class TaskManager {
     @Synchronized
     fun addTask(
         file: File,
+        ppPath: String,
         onSuccess: (task: CompressTask) -> Unit,
         onError: (task: CompressTask, errMsg: String) -> Unit
     ) {
@@ -51,7 +52,7 @@ class TaskManager {
                 file.parentFile.name,
                 file.name,
                 file.absolutePath,
-                file.absolutePath,
+                if (ppPath.isEmpty()) file.absolutePath else ppPath + File.separator + file.name,
                 onSuccess,
                 onError
             )

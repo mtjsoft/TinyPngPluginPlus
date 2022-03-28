@@ -45,7 +45,11 @@ class AutoWindow : JDialog() {
             ok.addActionListener {
                 okClick()
             }
-            progressBar.isVisible = false
+            // 默认进度条显示
+            progressBar.value = 0
+            progressBar.minimum = 0
+            progressBar.maximum = 100
+            progressBar.isVisible = true
         }.root)
         setSize(500, 600)
         setLocationRelativeTo(null)
@@ -81,7 +85,7 @@ class AutoWindow : JDialog() {
                 dstFile.mkdirs()
             }
             // 进度条未走完
-            if (progressBar.isVisible && progressBar.maximum > 0 && progressBar.value > 0 && progressBar.value < progressBar.maximum) {
+            if (progressBar.maximum > 0 && progressBar.value > 0 && progressBar.value < progressBar.maximum) {
                 JOptionPane.showMessageDialog(null, "当前任务还未结束，请稍后.", "提示", JOptionPane.WARNING_MESSAGE)
                 return
             }
@@ -90,16 +94,16 @@ class AutoWindow : JDialog() {
             // 获取总的需要替换的文件个数
             setProgressBar(resFiles.size)
             printResult("=====================================")
-            printResult("====            压缩开始  0%       ====")
+            printResult("====压缩开始  0%")
             // 压缩
             for (file in resFiles) {
-                TaskManager.init.addTask(file, { task ->
-                    printResult("====    SUCCESS →  " + task.folderName + "    >>>>    " + task.fileName)
+                TaskManager.init.addTask(file, ppPath, { task ->
+                    printResult("====SUCCESS → " + task.folderName + ">>>>" + task.fileName)
                     updateProgressBar()
                 }, { task, errMsg ->
-                    printResult("====    ERROR  ↓  " + task.folderName + "    >>>>    " + task.fileName)
+                    printResult("====ERROR ↓ " + task.folderName + ">>>>" + task.fileName)
                     printResult(errMsg)
-                    printResult("====    ERROR  ↑  " + task.folderName + "    >>>>    " + task.fileName)
+                    printResult("====ERROR ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ")
                     updateProgressBar()
                 })
             }
@@ -109,6 +113,7 @@ class AutoWindow : JDialog() {
     /**
      * 初始化进度条
      */
+    @Synchronized
     private fun setProgressBar(size: Int) {
         autoScriptWindow.apply {
             progressBar.isVisible = size > 0
@@ -124,11 +129,10 @@ class AutoWindow : JDialog() {
     @Synchronized
     private fun updateProgressBar(addNUm: Int = 1, isOver: Boolean = false) {
         var progress = autoScriptWindow.progressBar.value + addNUm
-        if (progress > autoScriptWindow.progressBar.maximum || isOver) {
+        if (progress >= autoScriptWindow.progressBar.maximum || isOver) {
             progress = autoScriptWindow.progressBar.maximum
-            autoScriptWindow.progressBar.isVisible = false
             printResult("=====================================")
-            printResult("====          压缩完成  100%      ====")
+            printResult("====压缩完成  100%")
         }
         autoScriptWindow.progressBar.value = progress
     }

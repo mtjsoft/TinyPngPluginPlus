@@ -1,0 +1,59 @@
+<idea-plugin>
+    <id>cn.mtjsoft.tinypng.plugin</id>
+    <name>TinyPNGPlugin</name>
+    <version>1.0.0</version>
+    <vendor email="mtjsoft3@gmain.com" url="https://mtjsoft.github.io/">马腾蛟</vendor>
+
+    <description><![CDATA[
+    <h1>TinyPNGPlugin</h1>
+      <br/>
+      <p>
+      <b><a href="https://github.com/Deemonser/TinyPngPlugin">GitHub</a></b>
+      </p>
+      <p>
+      <b><a href="https://github.com/Deemonser/TinyPngPlugin">https://github.com/Deemonser/TinyPngPlugin</a></b>
+      </p>
+      <br/>
+      <p><b>A plugin for compression picture by TinyPNG API.</b></p>
+      <br/>
+      <p><b>利用 TinyPNG 的 API ，开发的图片压缩工具。</b></p>
+      <p><b>如果有问题，欢迎大家到 GitHub 上留言。</b></p>
+      <br/>
+      <p><b>Use： Help --> TinyPNGPlugin </b></p>
+      <br/>
+      <p><b>更多详细信息，请查看 GitHub</b> <br/> <a href="https://github.com/Deemonser/TinyPngPlugin">https://github.com/Deemonser/TinyPngPlugin</a></p>
+    ]]>
+    </description>
+
+    <change-notes><![CDATA[
+      <p>
+        <h3>v1.0.0 2021/9/05</h3>
+        <li>可视化设置Shape属性，一键生成Shape文件到指定目录</li>
+      </p>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="160.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    -->
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="TinyPNGPlugin.ID" class="cn.mtjsoft.tinypng.plugin.TinyPngAction" text="TinyPNGPlugin"
+                description="A plugin for compression picture by tinyPNG API">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
+        </action>
+    </actions>
+
+</idea-plugin>

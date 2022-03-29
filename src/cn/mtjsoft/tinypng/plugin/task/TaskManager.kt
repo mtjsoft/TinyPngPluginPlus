@@ -85,6 +85,18 @@ class TaskManager {
     }
 
     /**
+     * 清空停止任务
+     */
+    fun cleanTask() {
+        try {
+            cachedThreadPool.shutdownNow()
+            runningQ.clear()
+            readyQ.clear()
+        } catch (e: Exception) {
+        }
+    }
+
+    /**
      * 开始执行压缩任务
      */
     private fun startNextTask(it: CompressTask) {

@@ -17,10 +17,7 @@ import java.io.File
 import java.net.URI
 import java.text.SimpleDateFormat
 import java.util.*
-import javax.swing.JFileChooser
-import javax.swing.JFrame
-import javax.swing.JOptionPane
-import javax.swing.JTextField
+import javax.swing.*
 import kotlin.system.exitProcess
 
 class AutoWindow : JFrame() {
@@ -43,7 +40,7 @@ class AutoWindow : JFrame() {
     init {
         title = "图片资源自动压缩工具"
         icon = Toolkit.getDefaultToolkit().createImage(this.javaClass.getResource("/image/icon72.png"))
-        iconImage = icon
+        setIconImage(icon)
     }
 
     fun showWindow() {
@@ -79,7 +76,7 @@ class AutoWindow : JFrame() {
             pp.text = CacheUtils.getPath2()
 
         }.root)
-        setSize(500, 600)
+        setSize(530, 630)
         setLocationRelativeTo(null)
         // 不可缩放
         isResizable = false
@@ -244,17 +241,20 @@ class AutoWindow : JFrame() {
         mJFrame.defaultCloseOperation = DO_NOTHING_ON_CLOSE
         mJFrame.addWindowListener(object : WindowListener {
             override fun windowOpened(e: WindowEvent?) {
+                println("1")
             }
 
             override fun windowClosing(e: WindowEvent) {
+                println("2")
                 val option = JOptionPane.showConfirmDialog(
                     mJFrame, if (startTPing) "当前压缩任务还在进行中，确定要退出吗?" else "确定退出吗?", "提示",
                     JOptionPane.YES_NO_OPTION
                 )
                 if (option == JOptionPane.YES_OPTION) {
                     if (e.window === mJFrame) {
+                        TaskManager.init.cleanTask()
                         mJFrame.dispose()
-                        exitProcess(0)
+//                        exitProcess(0)
                     } else {
                         return
                     }
@@ -266,18 +266,23 @@ class AutoWindow : JFrame() {
             }
 
             override fun windowClosed(e: WindowEvent?) {
+                println("3")
             }
 
             override fun windowIconified(e: WindowEvent?) {
+                println("4")
             }
 
             override fun windowDeiconified(e: WindowEvent?) {
+                println("5")
             }
 
             override fun windowActivated(e: WindowEvent?) {
+                println("6")
             }
 
-            override fun windowDeactivated(e: WindowEvent?) {
+            override fun windowDeactivated(e: WindowEvent) {
+                println("7")
             }
         })
     }

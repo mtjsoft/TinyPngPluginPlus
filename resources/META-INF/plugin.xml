@@ -1,11 +1,11 @@
 <idea-plugin>
     <id>cn.mtjsoft.tinypng.plugin</id>
-    <name>TinyPNGPlugin</name>
+    <name>TinyPNGPlus</name>
     <version>1.0.0</version>
     <vendor email="mtjsoft3@gmain.com" url="https://github.com/mtjsoft/TinyPngPluginPlus">马腾蛟</vendor>
 
     <description><![CDATA[
-    <h1>TinyPNGPlugin</h1>
+    <h1>TinyPNGPlus</h1>
       <br/>
       <p>
       <b><a href="https://github.com/mtjsoft/TinyPngPluginPlus">GitHub</a></b>
@@ -20,7 +20,7 @@
       <p><b>Get TinyPNG  KEY?</b><b><a href="https://tinypng.com/developers">Click It</a></b></p>
       <p><b>如果有问题，欢迎大家到 GitHub 上提交</b><b><a href="https://github.com/mtjsoft/TinyPngPluginPlus/issues">Issuses</a></b></p>
       <br/>
-      <p><b>Use： Tools --> TinyPNGPlugin </b></p>
+      <p><b>Use： Tools --> TinyPNGPlus </b></p>
       <br/>
       <p><b>keyboard-shortcut： Ctrl + Alt + P </b></p>
       <br/>
@@ -51,7 +51,7 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="TinyPNGPlugin.ID" class="cn.mtjsoft.tinypng.plugin.TinyPngAction" text="TinyPNGPlugin"
+        <action id="TinyPNGPlus.ID" class="cn.mtjsoft.tinypng.plugin.TinyPngAction" text="TinyPNGPlus"
                 description="A plugin for compression picture by tinyPNG API">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>

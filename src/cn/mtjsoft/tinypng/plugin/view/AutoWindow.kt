@@ -40,10 +40,10 @@ class AutoWindow : JFrame() {
     init {
         title = "图片资源自动压缩工具"
         icon = Toolkit.getDefaultToolkit().createImage(this.javaClass.getResource("/image/icon72.png"))
-        setIconImage(icon)
+        iconImage = icon
     }
 
-    fun showWindow() {
+    fun showWindow(rpPath: String = "") {
         startTPing = false
         contentPane.add(AutoScriptWindow().apply {
             autoScriptWindow = this
@@ -72,9 +72,8 @@ class AutoWindow : JFrame() {
             result.isEditable = false
             // 设置缓存数据
             apiKeyTF.text = CacheUtils.getApiKey()
-            rp.text = CacheUtils.getPath1()
+            rp.text = if (rpPath.isEmpty()) CacheUtils.getPath1() else rpPath
             pp.text = CacheUtils.getPath2()
-
         }.root)
         setSize(530, 630)
         setLocationRelativeTo(null)

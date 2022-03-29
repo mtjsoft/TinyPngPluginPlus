@@ -64,6 +64,11 @@
             <add-to-group group-id="ToolsMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
         </action>
+        <!--    右键    -->
+        <action id="TinyPNGPlus.ID.Right" class="cn.mtjsoft.tinypng.plugin.TinyPngAction" text="TinyPNGPlus"
+                description="A plugin for compression picture by tinyPNG API">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last" />
+        </action>
     </actions>
 
 </idea-plugin>

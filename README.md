@@ -11,11 +11,17 @@
       <br/>
       <p><b>Get TinyPNG  APIKEY?</b><b><a href="https://tinypng.com/developers">Click It</a></b></p>
       <br/>
-      <p><b>Use： Tools --> TinyPNGPlus </b></p>
+      <p><b>Use：</b></p>
       <br/>
-      <p><b>keyboard-shortcut： Ctrl + Alt + P </b></p>
+      <b><a href="https://github.com/mtjsoft/TinyPngPluginPlus/raw/master/TinyPngPluginPlus.zip">Download Plugin</a></b>
       <br/>
-      <p><b>Right click the specified folder and select TinyPNGPlus</b></p>
+      <p><b>Install Plugin from Disk  , Choose Plugin File --> TinyPngPluginPlus.zip </b></p>
+      <br/>
+      <p><b>1、Tools --> TinyPNGPlus </b></p>
+      <br/>
+      <p><b>2、keyboard-shortcut： Ctrl + Alt + P </b></p>
+      <br/>
+      <p><b>3、Right click the specified folder and select TinyPNGPlus</b></p>
       <br/>
       <img src="https://raw.githubusercontent.com/mtjsoft/TinyPngPluginPlus/master/images/tools.png" alt="Use" />
       <br/>

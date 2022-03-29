@@ -125,15 +125,13 @@ class AutoWindow : JFrame() {
             }
             CacheUtils.savePath1(rpPath)
             ppPath = pp.text
-            if (ppPath.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "请选择保存压缩文件夹.", "提示", JOptionPane.ERROR_MESSAGE)
-                return
+            if (ppPath.isNotEmpty()) {
+                val dstFile = File(ppPath)
+                if (!dstFile.exists()) {
+                    dstFile.mkdirs()
+                }
+                CacheUtils.savePath2(ppPath)
             }
-            val dstFile = File(ppPath)
-            if (!dstFile.exists()) {
-                dstFile.mkdirs()
-            }
-            CacheUtils.savePath2(ppPath)
             startTPing = true
             result.text = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINESE).format(Date()) + "\n"
             val resFiles = FileUtils.findFileList(rpPath)

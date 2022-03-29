@@ -89,8 +89,6 @@ class TaskManager {
      */
     fun cleanTask() {
         try {
-            cachedThreadPool.shutdownNow()
-            runningQ.clear()
             readyQ.clear()
         } catch (e: Exception) {
         }

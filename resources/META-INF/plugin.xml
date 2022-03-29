@@ -1,11 +1,11 @@
 <idea-plugin>
     <id>cn.mtjsoft.tinypng.plugin</id>
     <name>TinyPNGPlus</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <vendor email="mtjsoft3@gmain.com" url="https://github.com/mtjsoft/TinyPngPluginPlus">马腾蛟</vendor>
 
     <description><![CDATA[
-    <h1>TinyPNGPlus</h1>
+    <h2>TinyPNGPlus: A plugin for compression picture by tinyPNG API</h2>
       <br/>
       <p>
       <b><a href="https://github.com/mtjsoft/TinyPngPluginPlus">GitHub</a></b>
@@ -24,10 +24,18 @@
       <br/>
       <p><b>keyboard-shortcut： Ctrl + Alt + P </b></p>
       <br/>
+      <img src="https://github.com/mtjsoft/TinyPngPluginPlus/tree/master/images/tools.png" />
+      <br/>
+      <img src="https://github.com/mtjsoft/TinyPngPluginPlus/tree/master/images/running.png" />
+      <br/>
     ]]>
     </description>
 
     <change-notes><![CDATA[
+      <p>
+        <h3>v1.0.1 2022/03/29</h3>
+        <li>修复已知问题</li>
+      </p>
       <p>
         <h3>v1.0.0 2022/03/28</h3>
         <li>实现对指定文件夹下的图片进行可视化压缩</li>

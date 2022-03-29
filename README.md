@@ -12,6 +12,13 @@
 ### 版本
 
 <p>
+<h4>v1.0.1 2022/03/29</h4>
+<ul>
+<li>修复已知问题</li>
+</ul>
+</p>
+
+<p>
 <h4>v1.0.0 2022/03/28</h4>
 <ul>
 <li>实现对指定文件夹下的图片进行可视化压缩</li>
@@ -22,4 +29,3 @@
 
 <img src="./images/tools.png" />
 <img src="./images/running.png" />
-<img src="./images/over.png" />

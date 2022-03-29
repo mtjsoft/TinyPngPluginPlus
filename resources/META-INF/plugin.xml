@@ -1,11 +1,11 @@
 <idea-plugin>
     <id>cn.mtjsoft.tinypng.plugin</id>
     <name>TinyPNGPlus</name>
-    <version>1.0.1</version>
+    <version>1.0.0</version>
     <vendor email="mtjsoft3@gmain.com" url="https://github.com/mtjsoft/TinyPngPluginPlus">马腾蛟</vendor>
 
     <description><![CDATA[
-    <h2>TinyPNGPlus: A plugin for compression picture by tinyPNG API</h2>
+      <h2>TinyPNGPlus: A plugin for compression picture by tinyPNG API. 利用 TinyPNG 的 API，开发的图片压缩工具。</h2>
       <br/>
       <p>
       <b><a href="https://github.com/mtjsoft/TinyPngPluginPlus">GitHub</a></b>
@@ -14,28 +14,24 @@
       <b><a href="https://github.com/mtjsoft/TinyPngPluginPlus">https://github.com/mtjsoft/TinyPngPluginPlus</a></b>
       </p>
       <br/>
-      <p><b>A plugin for compression picture by TinyPNG API.</b></p>
-      <br/>
-      <p><b>利用 TinyPNG 的 API ，开发的图片压缩工具。</b></p>
-      <p><b>Get TinyPNG  KEY?</b><b><a href="https://tinypng.com/developers">Click It</a></b></p>
-      <p><b>如果有问题，欢迎大家到 GitHub 上提交</b><b><a href="https://github.com/mtjsoft/TinyPngPluginPlus/issues">Issuses</a></b></p>
+      <p><b>Get TinyPNG  APIKEY?</b><b><a href="https://tinypng.com/developers">Click It</a></b></p>
       <br/>
       <p><b>Use： Tools --> TinyPNGPlus </b></p>
       <br/>
       <p><b>keyboard-shortcut： Ctrl + Alt + P </b></p>
       <br/>
-      <img src="https://github.com/mtjsoft/TinyPngPluginPlus/tree/master/images/tools.png" />
+      <p><b>Right click the specified folder and select TinyPNGPlus</b></p>
       <br/>
-      <img src="https://github.com/mtjsoft/TinyPngPluginPlus/tree/master/images/running.png" />
+      <img src="https://raw.githubusercontent.com/mtjsoft/TinyPngPluginPlus/master/images/tools.png" alt="Use" />
+      <br/>
+      <img src="https://raw.githubusercontent.com/mtjsoft/TinyPngPluginPlus/master/images/right_click.png" alt="Use" />
+      <br/>
+      <img src="https://raw.githubusercontent.com/mtjsoft/TinyPngPluginPlus/master/images/running.png" alt="Use" />
       <br/>
     ]]>
     </description>
 
     <change-notes><![CDATA[
-      <p>
-        <h3>v1.0.1 2022/03/29</h3>
-        <li>修复已知问题</li>
-      </p>
       <p>
         <h3>v1.0.0 2022/03/28</h3>
         <li>实现对指定文件夹下的图片进行可视化压缩</li>
@@ -60,14 +56,16 @@
     <actions>
         <!-- Add your actions here -->
         <action id="TinyPNGPlus.ID" class="cn.mtjsoft.tinypng.plugin.TinyPngAction" text="TinyPNGPlus"
+                icon="/image/iconfile.png"
                 description="A plugin for compression picture by tinyPNG API">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
         </action>
         <!--    右键    -->
         <action id="TinyPNGPlus.ID.Right" class="cn.mtjsoft.tinypng.plugin.TinyPngAction" text="TinyPNGPlus"
+                icon="/image/iconfile.png"
                 description="A plugin for compression picture by tinyPNG API">
-            <add-to-group group-id="ProjectViewPopupMenu" anchor="last" />
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first" />
         </action>
     </actions>
 

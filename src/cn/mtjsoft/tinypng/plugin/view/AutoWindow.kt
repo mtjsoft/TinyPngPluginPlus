@@ -2,12 +2,10 @@ package cn.mtjsoft.tinypng.plugin.view
 
 import cn.mtjsoft.tinypng.plugin.gui.AutoScriptWindow
 import cn.mtjsoft.tinypng.plugin.gui.GradientProgressBarUI
-import cn.mtjsoft.tinypng.plugin.gui.ProgressUI
 import cn.mtjsoft.tinypng.plugin.task.TaskManager
 import cn.mtjsoft.tinypng.plugin.utils.CacheUtils
 import cn.mtjsoft.tinypng.plugin.utils.FileUtils
 import com.tinify.Tinify
-import java.awt.Color
 import java.awt.Desktop
 import java.awt.Image
 import java.awt.Toolkit
@@ -18,7 +16,6 @@ import java.net.URI
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.swing.*
-import kotlin.system.exitProcess
 
 class AutoWindow : JFrame() {
 
@@ -39,7 +36,7 @@ class AutoWindow : JFrame() {
 
     init {
         title = "图片资源自动压缩工具"
-        icon = Toolkit.getDefaultToolkit().createImage(this.javaClass.getResource("/image/icon72.png"))
+        icon = Toolkit.getDefaultToolkit().createImage(this.javaClass.getResource("/image/logo.png"))
         iconImage = icon
     }
 
@@ -73,7 +70,7 @@ class AutoWindow : JFrame() {
             // 设置缓存数据
             apiKeyTF.text = CacheUtils.getApiKey()
             rp.text = if (rpPath.isEmpty()) CacheUtils.getPath1() else rpPath
-            pp.text = CacheUtils.getPath2()
+            pp.text = if (rpPath.isEmpty()) CacheUtils.getPath2() else rpPath
         }.root)
         setSize(530, 630)
         setLocationRelativeTo(null)

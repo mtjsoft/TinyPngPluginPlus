@@ -32,7 +32,7 @@
               </grid>
             </constraints>
             <properties>
-              <foreground color="-1"/>
+              <foreground color="-4473925"/>
               <horizontalAlignment value="10"/>
               <text value=""/>
             </properties>
@@ -52,7 +52,7 @@
               </grid>
             </constraints>
             <properties>
-              <foreground color="-1"/>
+              <foreground color="-4473925"/>
               <text value=""/>
             </properties>
           </component>
@@ -90,7 +90,7 @@
               </grid>
             </constraints>
             <properties>
-              <foreground color="-1"/>
+              <foreground color="-4473925"/>
               <horizontalAlignment value="10"/>
               <text value=""/>
               <toolTipText value="获取TinyPng ApiKey"/>

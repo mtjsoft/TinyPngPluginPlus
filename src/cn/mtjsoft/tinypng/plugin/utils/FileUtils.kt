@@ -1,6 +1,6 @@
 package cn.mtjsoft.tinypng.plugin.utils
 
-import java.io.*
+import java.io.File
 import java.util.*
 
 
@@ -11,44 +11,6 @@ import java.util.*
  * @date 2021-11-18 16:28:14
  */
 object FileUtils {
-
-    fun copyFile(srcPath: String, dstPath: String) {
-        File(srcPath).runCatching {
-            takeIf {
-                it.exists()
-            }?.inputStream()?.use { inputStream ->
-                File(dstPath).outputStream().use { outputStream ->
-                    inputStream.copyTo(outputStream)
-                }
-            }
-        }.onFailure {
-            // print or throw
-            it.printStackTrace()
-        }
-    }
-
-    fun writeStringToFile(filePath: String, saveString: String) {
-        try {
-            val fw = FileWriter(filePath, true)
-            val bw = BufferedWriter(fw)
-            bw.write(saveString)
-            bw.close()
-            fw.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    fun findAllFileList(path: String): List<File> {
-        val list: MutableList<File> = LinkedList()
-        try {
-            findFileList(File(path), list, true)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return list
-    }
-
     fun findFileList(path: String): List<File> {
         val list: MutableList<File> = LinkedList()
         try {

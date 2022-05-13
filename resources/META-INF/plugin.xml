@@ -5,7 +5,7 @@
     <vendor email="mtjsoft3@gmain.com" url="https://github.com/mtjsoft/TinyPngPluginPlus">马腾蛟</vendor>
 
     <description><![CDATA[
-      <h2>TinyPNGPlus: A plugin for compression picture by tinyPNG API. 利用 TinyPNG 的 API，开发的图片压缩工具。</h2>
+      <h2>TinyPNGPlus: A plugin for compression picture by tinyPNG API. </h2>
       <br/>
       <p>
       <b><a href="https://github.com/mtjsoft/TinyPngPluginPlus">GitHub</a></b>
@@ -47,7 +47,7 @@
     <!-- uncomment to enable plugin in all products
     -->
     <depends>com.intellij.modules.lang</depends>
-    <depends>com.intellij.modules.platform</depends>
+<!--    <depends>com.intellij.modules.platform</depends>-->
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->

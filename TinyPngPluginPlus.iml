@@ -11,5 +11,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
     <orderEntry type="library" name="com.tinify:tinify:1.6.4" level="project" />
+    <orderEntry type="library" name="forms-1.1-preview" level="project" />
   </component>
 </module>

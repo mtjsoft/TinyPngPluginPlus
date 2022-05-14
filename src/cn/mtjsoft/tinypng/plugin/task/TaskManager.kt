@@ -1,5 +1,6 @@
 package cn.mtjsoft.tinypng.plugin.task
 
+import cn.mtjsoft.tinypng.plugin.utils.FileUtils
 import com.tinify.Tinify
 import java.io.File
 import java.util.*
@@ -71,8 +72,12 @@ class TaskManager {
                 file.parentFile.name,
                 file.name,
                 file.absolutePath,
-                if (ppPath.isEmpty()) file.absolutePath else ppPath + File.separator + file.name,
-                file.length(),
+                when{
+                    ppPath.isEmpty() -> file.absolutePath
+                    FileUtils.isCanAddCompressTask(ppPath) -> ppPath
+                    else -> ppPath + File.separator + file.name
+                },
+                if (file.length() > 0) file.length() else 1,
                 0,
                 0,
                 0,

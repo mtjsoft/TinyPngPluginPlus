@@ -28,11 +28,7 @@ public class TinyPngAction extends AnAction {
         try {
             VirtualFile file = e.getData(CommonDataKeys.VIRTUAL_FILE);
             if (file != null && file.exists()) {
-                if (file.isDirectory()) {
-                    pathRight = file.getPath();
-                } else {
-                    pathRight = file.getParent().getPath();
-                }
+                pathRight = file.getPath();
             }
         } catch (Exception exception) {
             exception.printStackTrace();

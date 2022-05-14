@@ -21,29 +21,14 @@ object FileUtils {
         return list
     }
 
-    fun findFileNameList(path: String): List<String> {
-        val list: MutableList<String> = LinkedList()
-        try {
-            val dir = File(path)
-            if (!dir.exists() || !dir.isDirectory) {
-                return list
-            }
-            val filesName = dir.list()
-            if (filesName != null) {
-                list.addAll(Arrays.asList(*filesName))
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return list
-    }
-
     private fun findFileList(dir: File, fileList: MutableList<File>, isAll: Boolean) {
-        if (!dir.exists() || !dir.isDirectory) {
+        if (!dir.exists()) {
             return
         }
         if (dir.isFile) {
-            fileList.add(dir)
+            if (isCanAddCompressTask(dir.name)) {
+                fileList.add(dir)
+            }
             return
         }
         val files = dir.list()
@@ -51,15 +36,22 @@ object FileUtils {
             for (s in files) {
                 val file = File(dir, s)
                 if (file.isFile) {
-                    val name = file.name.toLowerCase()
                     // 过滤出支持的图片文件
-                    if (name.endsWith(".webp") || name.endsWith(".jpg") || name.endsWith(".png") || name.endsWith(".jpeg")) {
+                    if (isCanAddCompressTask(file.name)) {
                         fileList.add(file)
                     }
-                } else if (isAll) {
+                } else if (file.isDirectory && isAll) {
                     findFileList(file, fileList, true)
                 }
             }
         }
+    }
+
+    /**
+     * 是否是支持压缩的文件类型
+     */
+    fun isCanAddCompressTask(fileName: String): Boolean {
+        val name = fileName.toLowerCase()
+        return name.endsWith(".webp") || name.endsWith(".jpg") || name.endsWith(".png") || name.endsWith(".jpeg")
     }
 }

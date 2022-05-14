@@ -111,28 +111,27 @@ class AutoWindow : JFrame() {
             Tinify.setKey(apiKey)
             rpPath = rp.text
             if (rpPath.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "请选择待压缩资源图片文件夹.", "提示", JOptionPane.ERROR_MESSAGE)
+                JOptionPane.showMessageDialog(null, "请选择待压缩资源图片.", "提示", JOptionPane.ERROR_MESSAGE)
                 return
             }
-            val rpFileNames = FileUtils.findFileNameList(rpPath)
-            if (rpFileNames.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "待压缩资源图片文件夹为空.", "错误", JOptionPane.ERROR_MESSAGE)
+            val resFiles = FileUtils.findFileList(rpPath)
+            if (resFiles.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "待压缩资源图片为空.", "错误", JOptionPane.ERROR_MESSAGE)
                 return
             }
             CacheUtils.savePath1(rpPath)
             ppPath = pp.text
             if (ppPath.isNotEmpty()) {
                 val dstFile = File(ppPath)
-                if (!dstFile.exists()) {
+                if (dstFile.isDirectory && !dstFile.exists()) {
                     dstFile.mkdirs()
                 }
                 CacheUtils.savePath2(ppPath)
             }
             startTPing = true
             result.text = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINESE).format(Date()) + "\n"
-            val resFiles = FileUtils.findFileList(rpPath)
             if (resFiles.isEmpty()) {
-                printResult("==== 当前文件夹没有可压缩的图片")
+                printResult("==== 当前没有可压缩的图片")
                 startTPing = false
                 return
             }
@@ -150,7 +149,7 @@ class AutoWindow : JFrame() {
                 }, { task ->
                     oldFileAllSize += task.oldSize
                     newFileAllSize += task.newSize
-                    printResult("==SUCCESS → ${task.fileName}，压缩比: -${task.percentage}%，耗时：${task.endTime - task.startTime}ms")
+                    printResult("==SUCCESS → ${task.fileName}，-${(task.oldSize - task.newSize) / 1024}Kb，压缩比: -${task.percentage}%，耗时：${task.endTime - task.startTime}ms")
                     updateProgressBar()
                 }, { task, errMsg ->
                     printResult("==ERROR ↓ ${task.fileName} 耗时：${task.endTime - task.startTime}ms")
@@ -200,14 +199,26 @@ class AutoWindow : JFrame() {
         jFrame.iconImage = icon
         val defPath = if (jTextField.text.isNotEmpty()) jTextField.text else CacheUtils.getProjectFilePath()
         val jfc = if (defPath.isEmpty()) JFileChooser() else JFileChooser(defPath)
-        jfc.dialogTitle = "选择文件夹"
-        jfc.fileSelectionMode = JFileChooser.DIRECTORIES_ONLY
+        jfc.dialogTitle = "选择图片文件"
+        jfc.fileSelectionMode = JFileChooser.FILES_AND_DIRECTORIES
         val returnVal = jfc.showOpenDialog(jFrame)
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             val file = jfc.selectedFile
             file?.let {
-                if (it.isDirectory) {
-                    jTextField.text = it.absolutePath
+                when {
+                    it.isDirectory -> {
+                        jTextField.text = it.absolutePath
+                    }
+                    it.isFile -> {
+                        if (FileUtils.isCanAddCompressTask(it.name)) {
+                            jTextField.text = it.absolutePath
+                        } else {
+                            JOptionPane.showMessageDialog(null, "请选择Webp、png、jpg格式的图片.", "提示", JOptionPane.ERROR_MESSAGE)
+                        }
+                    }
+                    else -> {
+                        JOptionPane.showMessageDialog(null, "选择出错，请重试.", "错误", JOptionPane.ERROR_MESSAGE)
+                    }
                 }
             }
         }
